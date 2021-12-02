@@ -16,11 +16,13 @@ const port = process.env.PORT || 8091;
 const server = new Koa();
 
 server.use(async (ctx, next) => {
-   ctx.body = {
-      url: ctx.url,
+  const body = {
+    url: ctx.url,
       params: ctx.params || {},
       query: ctx.query
-   };
+  }
+  console.log(body)
+   ctx.body = body;
 })
 // server.use(compose([router.routes(), router.allowedMethods()]));
 
